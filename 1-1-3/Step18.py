@@ -20,11 +20,16 @@ for floor in range(num_floors):
     # set placement and color of turtle
     painter.penup()
     painter.goto(x, y)
+
     if floor % 3 == 0:
         if color == "gray":
             color = "blue"
         else:
             color = "gray"
+
+    if floor % 21 == 0 and floor > 0 :
+        x = x + 75
+        y = -150
 
     painter.color(color)
     y = y + 5  # location of next floor
@@ -32,6 +37,7 @@ for floor in range(num_floors):
     # draw the floor
     painter.pendown()
     painter.forward(50)
+
 
 wn = trtl.Screen()
 wn.mainloop()
