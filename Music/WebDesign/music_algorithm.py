@@ -2,6 +2,7 @@ import random
 import json
 import os
 
+
 class PityRandom:
     def __init__(self, num_students):
         self.num_students = num_students
@@ -16,7 +17,7 @@ class PityRandom:
 
         # Update history and weights
         self.history.append(student)
-        if len(self.history) > 10:  # Keep history size manageable
+        if len(self.history) > 100:  # Keep history size manageable
             self.history.pop(0)
 
         self.update_weights()
@@ -27,7 +28,7 @@ class PityRandom:
         self.weights = [1] * self.num_students
         for student in self.history:
             if 1 <= student <= self.num_students:
-                self.weights[student - 1] *= 0.5  # Decrease weight for recently picked students
+                self.weights[student - 1] *= 0.0078125  # Decrease weight for recently picked students
 
     def load_history(self):
         if os.path.exists('history.json'):
@@ -39,6 +40,7 @@ class PityRandom:
     def save_history(self):
         with open('history.json', 'w') as file:
             json.dump({'history': self.history}, file)
+
 
 # Example usage
 num_students = int(input("Enter the number of students in the class: "))
