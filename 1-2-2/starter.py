@@ -23,10 +23,10 @@ timer_up = False
 score = 0
 
 # -----initialize the turtles-----
-spot = trtl.Turtle()
-spot.shape(spot_shape)
-spot.shapesize(spot_size)
-spot.fillcolor(spot_color)
+moewl = trtl.Turtle()
+moewl.shape(spot_shape)
+moewl.shapesize(spot_size)
+moewl.fillcolor(spot_color)
 
 score_writer = trtl.Turtle()
 score_writer.hideturtle()
@@ -75,20 +75,20 @@ def spot_clicked(x, y):
         update_score()
         change_position()
     else:
-        spot.hideturtle()
+        moewl.hideturtle()
 
 
 # resize the turtle
 def resize():
     sizes = [.5, 1, 1.5, 2]
-    spot.shapesize(rand.choice(sizes))
+    moewl.shapesize(rand.choice(sizes))
 
 
 # stamp turtle
 def leave_a_mark():
-    spot.fillcolor(rand.choice(colors[1:]))
-    spot.stamp()
-    spot.fillcolor(colors[0])  # comment out for more a more difficult game
+    moewl.fillcolor(rand.choice(colors[1:]))
+    moewl.stamp()
+    moewl.fillcolor(colors[0])  # comment out for more a more difficult game
 
 
 # change the position of spot
@@ -97,16 +97,16 @@ def change_position():
     resize()  # challenge to change size of turtle
     new_xpos = rand.randint(-150, 150)  # x,y set to fit on smaller screen
     new_ypos = rand.randint(-150, 150)  # x,y set to fit on smaller screen
-    spot.penup()  # 2nd step in moving
-    spot.hideturtle()  # 3rd step in moving
-    spot.goto(new_xpos, new_ypos)  # 1st step in moving
-    spot.showturtle()
-    spot.pendown()
+    moewl.penup()  # 2nd step in moving
+    moewl.hideturtle()  # 3rd step in moving
+    moewl.goto(new_xpos, new_ypos)  # 1st step in moving
+    moewl.showturtle()
+    moewl.pendown()
 
 
 # starting the game
 def start_game():
-    spot.onclick(spot_clicked)
+    moewl.onclick(spot_clicked)
     counter.getscreen().ontimer(countdown, counter_interval)
 
 
