@@ -21,8 +21,8 @@ class PityRandom:
             self.history.pop(0)
 
         self.update_weights()
-        self.save_history()
         return student
+        self.save_history()
 
     def update_weights(self):
         self.weights = [1] * self.num_students
